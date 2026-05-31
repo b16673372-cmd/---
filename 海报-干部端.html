@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>需求分析 · 干部端海报</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:"微软雅黑","PingFang SC",sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;background:#d0d4dc;padding:20px}
+.poster{width:500px;background:linear-gradient(170deg,#0F1F44,#001FC5 30%,#1F51D6 70%,#1F3864);border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,31,197,.25);color:#fff;position:relative}
+.poster::before{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.03)}
+.header{text-align:center;padding:40px 36px 20px;position:relative;z-index:1}
+.header .xg{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#FFC000,#ED7D31);display:inline-flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;color:#fff;margin-bottom:14px;box-shadow:0 4px 20px rgba(255,192,0,.3)}
+.header h1{font-size:26px;font-weight:bold;letter-spacing:3px;margin-bottom:4px}
+.header .sub{font-size:13px;opacity:.7;line-height:1.6}
+.divider{width:60px;height:3px;background:#FFC000;margin:12px auto 0;border-radius:2px}
+.qr-section{text-align:center;padding:20px 36px 28px;position:relative;z-index:1}
+.qr-box{background:#fff;border-radius:20px;padding:16px;display:inline-block;margin-bottom:12px;box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.features{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.features span{background:rgba(255,255,255,.08);padding:6px 14px;border-radius:14px;font-size:11px}
+.url{font-size:12px;opacity:.5;word-break:break-all}
+.footer{text-align:center;padding:0 36px 28px;position:relative;z-index:1;font-size:11px;opacity:.4}
+.footer .note{background:rgba(255,192,0,.15);color:#FFE4A0;padding:8px 16px;border-radius:10px;display:inline-block;margin-top:8px;font-size:11px}</style></head><body>
+<div class="poster"><div class="header"><div class="xg">G</div><h1>客户需求分析</h1><div class="sub">顺德区域 · 干部专用<br>数据汇总 · 洞察分析</div><div class="divider"></div></div>
+<div class="qr-section"><div class="qr-box"><div id="qr"></div></div>
+<div class="features"><span>📊 Top5需求</span><span>⚠️ 预警追踪</span><span>💬 家长反馈</span><span>📥 CSV合并</span></div>
+<div class="url">b16673372-cmd.github.io/---/manager</div></div>
+<div class="footer"><p>极客素养中心 · 华南事业部 · 顺德校区</p><div class="note">📊 教师CSV粘贴合并 · 专业洞察报告</div></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>setTimeout(function(){if(typeof QRCode!=='undefined'){new QRCode(document.getElementById('qr'),{text:'https://b16673372-cmd.github.io/---/manager.html',width:200,height:200,colorDark:'#001FC5',colorLight:'#ffffff'})}else{document.getElementById('qr').innerHTML='<div style="padding:30px;text-align:center;color:#333"><a href="https://b16673372-cmd.github.io/---/manager" style="color:#1F51D6;font-size:13px">点击打开干部端</a></div>'}},300)</script></body></html>
