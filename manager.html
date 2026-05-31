@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>客户需求分析 · 干部端</title>
+<style>:root{--navy:#001FC5;--blue:#1F51D6;--mid:#2E75B6;--deep:#1F3864;--gold:#FFC000;--orange:#ED7D31;--bg:#EEF4FA;--text:#1a1a2e;--sub:#788;--red:#C0392B}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:"微软雅黑","PingFang SC",sans-serif;background:#f0f2f5;min-height:100vh}
+.topbar{background:linear-gradient(135deg,var(--deep),var(--navy));color:#fff;padding:16px 20px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:10}
+.topbar .xg{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--orange));display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:bold;color:#fff;flex-shrink:0}
+.topbar h2{font-size:16px;flex:1}.topbar .logout{font-size:11px;opacity:.6;cursor:pointer}
+.content{max-width:600px;margin:0 auto;padding:16px}.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.card h3{font-size:14px;color:var(--deep);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.stat{flex:1;min-width:70px;background:var(--bg);border-radius:10px;padding:10px 8px;text-align:center}
+.stat .n{font-size:22px;font-weight:bold;color:var(--navy)}.stat .l{font-size:10px;color:var(--sub);margin-top:2px}
+.stat.warn .n{color:var(--orange)}.top5 li{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #f5f5f5;font-size:12px}
+.top5 .rk{width:22px;height:22px;border-radius:6px;color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0}
+.top5 li:nth-child(1) .rk{background:var(--navy)}.top5 li:nth-child(2) .rk{background:var(--blue)}.top5 li:nth-child(3) .rk{background:var(--mid)}.top5 li:nth-child(n+4) .rk{background:var(--light)}
+.top5 .cnt{margin-left:auto;font-weight:bold;color:var(--blue)}.alert-item{padding:8px 12px;background:#FFF8E1;border-radius:8px;font-size:11px;margin-bottom:4px;border-left:3px solid var(--gold)}
+.tag{display:inline-block;padding:3px 8px;border-radius:6px;font-size:10px;margin:2px;background:var(--bg);color:var(--deep)}.tag.hot{background:#FFF3CD;color:#B8860B}
+textarea{width:100%;height:80px;border:2px solid #E0E4EC;border-radius:10px;padding:10px;font-size:11px;font-family:monospace;resize:vertical;margin-bottom:8px}
+textarea:focus{outline:none;border-color:var(--blue)}.btn{width:100%;padding:12px;border:none;border-radius:10px;font-weight:bold;font-size:14px;cursor:pointer;font-family:inherit;color:#fff;background:linear-gradient(135deg,var(--navy),var(--blue));margin-bottom:6px}
+.btn2{background:var(--bg);color:var(--blue);border:1.5px solid #D0D8E8}
+.login-pop{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);z-index:99;display:flex;justify-content:center;align-items:center}
+.login-box{background:#fff;border-radius:16px;padding:30px;text-align:center;width:320px}
+.login-box .xg2{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--orange));display:inline-flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;color:#fff;margin-bottom:12px}
+.login-box h3{color:var(--deep);margin-bottom:4px}.login-box p{font-size:12px;color:var(--sub);margin-bottom:14px}
+.login-box input{width:100%;padding:12px;border:2px solid #E0E4EC;border-radius:12px;font-size:14px;text-align:center;font-family:inherit;margin-bottom:8px}
+.login-box input:focus{outline:none;border-color:var(--blue)}.login-box .err{color:var(--red);font-size:11px;display:none;margin-bottom:6px}
+.login-box .pb{width:100%;padding:12px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;font-family:inherit;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;font-size:14px;margin-top:6px}</style></head><body>
+<div class="login-pop" id="lp"><div class="login-box"><div class="xg2">G</div><h3>客户需求分析系统</h3><p>干部端</p>
+<input type="password" id="pw" placeholder="请输入密码"><div class="err" id="er">密码错误</div>
+<button class="pb" id="lb">验证进入</button></div></div>
+<div id="ma" style="display:none">
+<div class="topbar"><div class="xg">G</div><h2>客户需求分析 · 干部端</h2><span class="logout" id="lo">退出</span></div>
+<div class="content"><div class="stats" id="sa"><div class="stat"><div class="n">0</div><div class="l">加载中...</div></div></div>
+<div class="card"><h3>高频需求 Top5</h3><ul class="top5" id="t5"><li style="color:var(--sub);text-align:center;padding:12px;font-size:12px">暂无数据</li></ul></div>
+<div class="card"><h3>需关注预警</h3><div id="ab" style="font-size:12px;color:var(--sub)">暂无预警</div></div>
+<div class="card"><h3>家长反馈</h3><div id="pb" style="font-size:12px;color:var(--sub)">暂无数据</div></div>
+<div class="card"><h3>粘贴CSV数据</h3><textarea id="ci" placeholder="粘贴教师CSV内容"></textarea>
+<button class="btn" id="mb">合并刷新</button><button class="btn btn2" id="cb">清空全部</button></div></div></div>
+<script>
+var d=[],P="jksx1234";
+function S(){localStorage.setItem("mg_data",JSON.stringify(d))}
+function L(){var s=localStorage.getItem("mg_data");if(s)d=JSON.parse(s)}
+function parseCSV(line){var r=[],cu="",q=false;for(var j=0;j<line.length;j++){var ch=line[j];if(ch==='"')q=!q;else if(ch===','&&!q){r.push(cu.trim());cu=""}else cu+=ch}r.push(cu.trim());return r}
+function R(){document.getElementById("sa").innerHTML='<div class=stat><div class=n>'+d.length+'</div><div class=l>总记录</div></div><div class=stat><div class=n>'+new Set(d.map(function(r){return r.t})).size+'</div><div class=l>教师数</div></div><div class=stat><div class=n>'+new Set(d.map(function(r){return r.s})).size+'</div><div class=l>学生数</div></div><div class="stat warn"><div class=n>'+d.filter(function(r){return(r.st||"").indexOf("不想")>=0||(r.st||"").indexOf("无意向")>=0}).length+'</div><div class=l>需关注</div></div>';
+var ps={};d.forEach(function(r){(r.p||"").split("/").forEach(function(p){if(p)ps[p]=(ps[p]||0)+1})});var so=Object.entries(ps).sort(function(a,b){return b[1]-a[1]}).slice(0,5);
+document.getElementById("t5").innerHTML=so.length===0?'<li style="color:var(--sub);text-align:center;padding:12px;font-size:12px">暂无数据</li>':so.map(function(kv,i){return'<li><div class=rk>'+(i+1)+'</div>'+kv[0]+'<span class=cnt>'+kv[1]+'次</span></li>'}).join("");
+var ws=d.filter(function(r){return(r.st||"").indexOf("不想")>=0||(r.st||"").indexOf("无意向")>=0});
+document.getElementById("ab").innerHTML=ws.length===0?"暂无预警":ws.slice(0,5).map(function(r){return'<div class=alert-item>'+(r.s||"?")+" · "+(r.sc||"")+" · "+(r.st||"")+" · "+(r.t||"")+'</div>'}).join("");
+var nt=d.filter(function(r){return r.n&&r.n.length>3});
+document.getElementById("pb").innerHTML=nt.length===0?"暂无家长反馈":nt.slice(0,8).map(function(r){return'<span class=tag>'+(r.s||"")+": "+(r.n||"").substring(0,30)+'</span>'}).join(" ")}
+document.getElementById("lb").onclick=function(){if(document.getElementById("pw").value===P){document.getElementById("lp").style.display="none";document.getElementById("ma").style.display="block";L();R()}else{document.getElementById("er").style.display="block";document.getElementById("pw").value=""}};
+document.getElementById("pw").onkeydown=function(e){if(e.key==="Enter")document.getElementById("lb").click()};
+document.getElementById("lo").onclick=function(){location.reload()};
+document.getElementById("mb").onclick=function(){var c=document.getElementById("ci").value.trim();if(!c)return;var ls=c.split("\n");for(var i=0;i<ls.length;i++){var l=ls[i].trim();if(!l)continue;if(l.charCodeAt(0)===65279)l=l.substring(1);if(l.indexOf("时间")>=0)continue;var cs=parseCSV(l);if(cs.length>=5)d.push({t:cs[1]||"",c:cs[2]||"",sc:cs[3]||"",s:cs[4]||"",p:cs[5]||"",st:cs[6]||"",n:cs[7]||"",time:cs[0]||""})}document.getElementById("ci").value="";S();R()};
+document.getElementById("cb").onclick=function(){if(confirm("确定清空？")){d=[];S();R()}};R();</script></body></html>
