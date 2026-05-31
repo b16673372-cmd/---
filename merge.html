@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>数据汇总 · 极客需求调研</title>
+<style>
+:root{--navy:#001FC5;--blue:#1F51D6;--deep:#1F3864;--gold:#FFC000}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"微软雅黑","PingFang SC",sans-serif;background:#f0f2f5;padding:16px}
+.header{background:linear-gradient(135deg,var(--deep),var(--navy));color:#fff;padding:20px;border-radius:16px;text-align:center;margin-bottom:16px}
+.header h2{font-size:20px;margin-bottom:4px}
+.header p{font-size:12px;opacity:.7}
+.card{background:#fff;border-radius:14px;padding:18px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.card h3{font-size:15px;color:var(--deep);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.stat{flex:1;min-width:80px;background:#EEF4FA;border-radius:10px;padding:12px;text-align:center}
+.stat .n{font-size:24px;font-weight:bold;color:var(--navy)}
+.stat .l{font-size:10px;color:#999;margin-top:2px}
+textarea{width:100%;height:100px;border:2px solid #E0E4EC;border-radius:10px;padding:10px;font-size:12px;font-family:monospace;resize:vertical;margin-bottom:8px}
+textarea:focus{outline:none;border-color:var(--blue)}
+.btn{width:100%;padding:14px;border:none;border-radius:12px;font-weight:bold;font-size:14px;cursor:pointer;font-family:inherit;color:#fff;background:linear-gradient(135deg,var(--navy),var(--blue));margin-bottom:8px}
+.btn2{background:#EEF4FA;color:var(--blue);border:1.5px solid #D0D8E8}
+table{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
+th{background:var(--navy);color:#fff;padding:6px 8px;text-align:left}
+td{padding:5px 8px;border-bottom:1px solid #eee}
+.help{font-size:11px;color:#999;line-height:1.8}
+.help code{background:#EEF4FA;padding:1px 4px;border-radius:3px;font-size:10px}
+</style></head><body>
+
+<div class="header"><h2>📊 需求数据汇总</h2><p>合并教师CSV · 统一分析</p></div>
+
+<div class="card"><h3>📋 教师数据提交指引</h3>
+<div class="help">
+1. 教师端「需求收集」→ 填写提交 → 点右上角 <b>📊 看板</b><br>
+2. 看板底部 → <b>导出CSV</b> → 保存文件<br>
+3. 把CSV发到钉钉学科群<br>
+4. 干部在这里粘贴所有教师CSV → 一键汇总
+</div></div>
+
+<div class="card"><h3>📥 粘贴CSV数据合并</h3>
+<textarea id="csvInput" placeholder="粘贴所有教师的CSV内容（每次粘贴追加，不覆盖）"></textarea>
+<button class="btn" id="mergeBtn">🔄 合并并刷新统计</button>
+<button class="btn btn2" id="clearBtn">清空重置</button>
+<div class="stats" id="statsArea" style="display:none"></div>
+<table id="dataTable" style="display:none"><thead><tr><th>时间</th><th>教师</th><th>校区</th><th>场景</th><th>学生</th><th>问题</th></tr></thead><tbody></tbody></table>
+</div>
+
+<script>
+var mergedData=[];
+var headers=[];
+
+document.getElementById('mergeBtn').onclick=function(){
+  var csv=document.getElementById('csvInput').value.trim();
+  if(!csv) return alert('请粘贴CSV数据');
+  var lines=csv.split('\n');
+  for(var i=0;i<lines.length;i++){
+    var line=lines[i].trim();
+    if(!line) continue;
+    if(line.startsWith('﻿')) line=line.substring(1);
+    var cols=parseCSV(line);
+    if(i===0 || line.indexOf('时间')>=0){
+      if(headers.length===0) headers=cols;
+      continue;
+    }
+    if(cols.length>=5) mergedData.push(cols);
+  }
+  document.getElementById('csvInput').value='';
+  renderStats();
+};
+
+document.getElementById('clearBtn').onclick=function(){mergedData=[];headers=[];renderStats();};
+
+function parseCSV(line){
+  var result=[],current='',inQuotes=false;
+  for(var i=0;i<line.length;i++){
+    var c=line[i];
+    if(c==='"'){inQuotes=!inQuotes}
+    else if(c===','&&!inQuotes){result.push(current.trim());current=''}
+    else{current+=c}
+  }
+  result.push(current.trim());
+  return result;
+}
+
+function renderStats(){
+  var a=document.getElementById('statsArea');
+  var t=document.getElementById('dataTable');
+  if(mergedData.length===0){a.style.display='none';t.style.display='none';return}
+  
+  a.style.display='flex';
+  a.innerHTML='<div class="stat"><div class="n">'+mergedData.length+'</div><div class="l">总记录</div></div>'+
+    '<div class="stat"><div class="n">'+(new Set(mergedData.map(function(r){return r[1]||r[0]}))).size+'</div><div class="l">教师数</div></div>'+
+    '<div class="stat"><div class="n">'+(new Set(mergedData.map(function(r){return r[4]}))).size+'</div><div class="l">学生数</div></div>';
+  
+  t.style.display='table';
+  var tb=t.querySelector('tbody');
+  tb.innerHTML='';
+  mergedData.slice(-20).reverse().forEach(function(r){
+    tb.innerHTML+='<tr><td>'+(r[0]||'').slice(0,16)+'</td><td>'+(r[1]||'')+'</td><td>'+(r[2]||'')+'</td><td>'+(r[3]||'')+'</td><td>'+(r[4]||'')+'</td><td>'+(r[5]||'').substring(0,30)+'</td></tr>';
+  });
+}
+</script>
+</body></html>
