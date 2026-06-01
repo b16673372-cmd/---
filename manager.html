@@ -3,189 +3,56 @@
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:"微软雅黑","PingFang SC",sans-serif;background:linear-gradient(180deg,#EDF2F9,#F2F5FB);min-height:100vh}
 .topbar{background:linear-gradient(135deg,#0F1F44,var(--deep),var(--navy));color:#fff;padding:16px 22px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;box-shadow:0 2px 16px rgba(0,31,197,.15)}
 .topbar .xg{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--orange));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:bold;color:#fff;flex-shrink:0;box-shadow:0 2px 12px rgba(255,192,0,.3)}
-.topbar h2{font-size:16px;font-weight:bold;flex:1;letter-spacing:1px}.topbar .logout{font-size:11px;opacity:.5;cursor:pointer;transition:.2s}.topbar .logout:hover{opacity:.8}
+.topbar h2{font-size:16px;font-weight:bold;flex:1;letter-spacing:1px}.topbar .logout{font-size:11px;opacity:.5;cursor:pointer}
 .content{max-width:720px;margin:0 auto;padding:20px 16px}
-
 .hero{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:18px;padding:24px 20px;margin-bottom:16px;color:#fff;box-shadow:0 4px 24px rgba(0,31,197,.12);position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.04)}
 .hero .row{display:flex;gap:16px;flex-wrap:wrap;position:relative;z-index:1}
-.hero .hs{flex:1;min-width:80px;text-align:center}
-.hero .hs .hv{font-size:32px;font-weight:bold;line-height:1}.hero .hs .hl{font-size:10px;opacity:.65;margin-top:4px}
+.hero .hs{flex:1;min-width:80px;text-align:center}.hero .hs .hv{font-size:32px;font-weight:bold;line-height:1}.hero .hs .hl{font-size:10px;opacity:.65;margin-top:4px}
 .hero .divider{width:1px;background:rgba(255,255,255,.15);flex-shrink:0}
-
-.card{background:#fff;border-radius:16px;padding:20px;margin-bottom:12px;box-shadow:0 2px 12px rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.04);transition:.2s}
-.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.card{background:#fff;border-radius:16px;padding:20px;margin-bottom:12px;box-shadow:0 2px 12px rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.04)}
 .card h3{font-size:15px;color:var(--deep);margin-bottom:12px;display:flex;align-items:center;gap:8px;font-weight:bold}
-
-.metrics{display:flex;gap:10px;flex-wrap:wrap}
-.met{flex:1;min-width:70px;padding:14px 10px;border-radius:12px;text-align:center;transition:.2s}
-.met:hover{transform:translateY(-2px)}
-.met .mv{font-size:24px;font-weight:bold;margin-bottom:2px}.met .ml{font-size:10px;color:var(--sub)}
-.m1{background:linear-gradient(135deg,#EEF4FA,#E8F0FA)}.m1 .mv{color:var(--navy)}
-.m2{background:linear-gradient(135deg,#E8F5E9,#E0F2E0)}.m2 .mv{color:var(--green)}
-.m3{background:linear-gradient(135deg,#FFF8E1,#FFF3CD)}.m3 .mv{color:#B8860B}
-.m4{background:linear-gradient(135deg,#FFEBEE,#FFE0E0)}.m4 .mv{color:var(--red)}
-.m5{background:linear-gradient(135deg,#EDE7F6,#E8E0F2)}.m5 .mv{color:#5B3AA0}
-
-.top5 li{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f5f5f5;font-size:13px}
-.top5 li:last-child{border:none}
-.top5 .rk{width:28px;height:28px;border-radius:8px;color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0}
-.top5 li:nth-child(1) .rk{background:var(--navy)}.top5 li:nth-child(2) .rk{background:var(--blue)}.top5 li:nth-child(3) .rk{background:var(--mid)}.top5 li:nth-child(n+4) .rk{background:var(--light)}
-.top5 .lb{flex:1;font-weight:500}.top5 .bar{width:120px;height:8px;background:#eee;border-radius:4px;flex-shrink:0}.top5 .bar .fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--mid))}
-.top5 .cnt{margin-left:8px;font-weight:bold;color:var(--blue);font-size:14px;min-width:40px;text-align:right}
-
-.alert-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:12px;margin-bottom:6px}
-.alert-item .risk{font-size:9px;padding:3px 8px;border-radius:5px;font-weight:bold;letter-spacing:1px;flex-shrink:0}
-.risk-h{background:#FFEBEE;color:var(--red)}.risk-m{background:#FFF8E1;color:#B8860B}
-.alert-h{background:linear-gradient(90deg,#FFF5F5,#fff)}.alert-m{background:linear-gradient(90deg,#FFFDF5,#fff)}
-
-.tag{display:inline-block;padding:4px 10px;border-radius:8px;font-size:11px;margin:3px;font-weight:500}
-.t1{background:var(--bg);color:var(--navy)}.t2{background:#E8F5E9;color:#2E7D32}.t3{background:#FFF3CD;color:#B8860B}.t4{background:#FFEBEE;color:#C0392B}
-
+.metrics{display:flex;gap:10px;flex-wrap:wrap}.met{flex:1;min-width:70px;padding:14px 10px;border-radius:12px;text-align:center}.met .mv{font-size:24px;font-weight:bold;margin-bottom:2px}.met .ml{font-size:10px;color:var(--sub)}
+.m1{background:linear-gradient(135deg,#EEF4FA,#E8F0FA)}.m1 .mv{color:var(--navy)}.m2{background:linear-gradient(135deg,#E8F5E9,#E0F2E0)}.m2 .mv{color:var(--green)}.m3{background:linear-gradient(135deg,#FFF8E1,#FFF3CD)}.m3 .mv{color:#B8860B}.m4{background:linear-gradient(135deg,#FFEBEE,#FFE0E0)}.m4 .mv{color:var(--red)}.m5{background:linear-gradient(135deg,#EDE7F6,#E8E0F2)}.m5 .mv{color:#5B3AA0}
+.top5 li{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f5f5f5;font-size:13px}.top5 li:last-child{border:none}.top5 .rk{width:28px;height:28px;border-radius:8px;color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0}.top5 li:nth-child(1) .rk{background:var(--navy)}.top5 li:nth-child(2) .rk{background:var(--blue)}.top5 li:nth-child(3) .rk{background:var(--mid)}.top5 li:nth-child(n+4) .rk{background:var(--light)}.top5 .lb{flex:1;font-weight:500}.top5 .bar{width:120px;height:8px;background:#eee;border-radius:4px;flex-shrink:0}.top5 .bar .fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--mid))}.top5 .cnt{margin-left:8px;font-weight:bold;color:var(--blue);font-size:14px;min-width:40px;text-align:right}
+.alert-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:12px;margin-bottom:6px}.alert-item .risk{font-size:9px;padding:3px 8px;border-radius:5px;font-weight:bold;flex-shrink:0}.risk-h{background:#FFEBEE;color:var(--red)}.risk-m{background:#FFF8E1;color:#B8860B}.alert-h{background:linear-gradient(90deg,#FFF5F5,#fff)}.alert-m{background:linear-gradient(90deg,#FFFDF5,#fff)}
+.tag{display:inline-block;padding:4px 10px;border-radius:8px;font-size:11px;margin:3px;font-weight:500}.t1{background:var(--bg);color:var(--navy)}.t2{background:#E8F5E9;color:#2E7D32}.t3{background:#FFF3CD;color:#B8860B}
 .import-box{background:linear-gradient(135deg,#F8FAFD,#EEF4FA);border:1.5px dashed #D0D8E8;border-radius:12px;padding:14px;margin-bottom:12px}
 .import-box textarea{width:100%;height:70px;border:2px solid #E0E4EC;border-radius:10px;padding:10px;font-size:11px;font-family:Consolas,monospace;resize:vertical;background:#fff}
 .import-box textarea:focus{outline:none;border-color:var(--blue)}
-.btn{width:100%;padding:14px;border:none;border-radius:12px;font-weight:bold;font-size:14px;cursor:pointer;font-family:inherit;color:#fff;background:linear-gradient(135deg,var(--navy),var(--blue));margin-bottom:8px;box-shadow:0 2px 8px rgba(0,31,197,.15);transition:.2s}
-.btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,31,197,.2)}
-.btn2{background:#fff;color:var(--blue);border:1.5px solid #D0D8E8;box-shadow:none}
-.btn3{background:linear-gradient(135deg,var(--deep),var(--navy))}
-.row2{display:flex;gap:8px}.row2>*{flex:1}
-
+.btn{width:100%;padding:14px;border:none;border-radius:12px;font-weight:bold;font-size:14px;cursor:pointer;font-family:inherit;color:#fff;background:linear-gradient(135deg,var(--navy),var(--blue));margin-bottom:8px;box-shadow:0 2px 8px rgba(0,31,197,.15)}.btn2{background:#fff;color:var(--blue);border:1.5px solid #D0D8E8;box-shadow:none}.btn3{background:linear-gradient(135deg,var(--deep),var(--navy))}.row2{display:flex;gap:8px}.row2>*{flex:1}
 .login-pop{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.75);z-index:99;display:flex;justify-content:center;align-items:center}
-.login-box{background:#fff;border-radius:20px;padding:36px;text-align:center;width:340px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
-.login-box .xg2{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--gold),var(--orange));display:inline-flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;color:#fff;margin-bottom:16px;box-shadow:0 4px 20px rgba(255,192,0,.3)}
-.login-box h3{color:var(--deep);margin-bottom:4px}.login-box p{font-size:12px;color:var(--sub);margin-bottom:16px}
-.login-box input{width:100%;padding:14px;border:2px solid #E0E4EC;border-radius:12px;font-size:15px;text-align:center;font-family:inherit;margin-bottom:8px;letter-spacing:4px}
-.login-box input:focus{outline:none;border-color:var(--blue)}.login-box .err{color:var(--red);font-size:11px;display:none;margin-bottom:4px}
-.login-box .pb{width:100%;padding:14px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;font-family:inherit;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;font-size:15px;margin-top:8px;box-shadow:0 4px 16px rgba(0,31,197,.2)}
-
-.report{display:none;background:#fff;border-radius:16px;padding:30px;margin:12px 0;box-shadow:0 2px 12px rgba(0,0,0,.04);line-height:2;border:1px solid rgba(0,0,0,.04)}
-.report.on{display:block}
-.report h2{font-size:20px;color:var(--navy);text-align:center;margin-bottom:6px;padding-bottom:14px;border-bottom:3px solid var(--navy)}
-.report h3{font-size:14px;color:var(--deep);margin:18px 0 8px;padding-left:10px;border-left:3px solid var(--blue)}
-.report p{font-size:11px;color:var(--sub);margin:4px 0}
-.report .exec-summary{background:var(--bg);padding:14px;border-radius:10px;font-size:12px;color:var(--text);margin:10px 0;line-height:1.9}
-.report .act-item{display:flex;gap:8px;padding:6px 0;font-size:12px}
-.report .act-prio{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:bold;color:#fff;flex-shrink:0}.prio-0{background:var(--red)}.prio-1{background:var(--orange)}.prio-2{background:var(--blue)}
-
-.empty-state{text-align:center;padding:30px;color:var(--sub)}
-.empty-state .icon{font-size:48px;margin-bottom:10px;opacity:.4}
-
+.login-box{background:#fff;border-radius:20px;padding:36px;text-align:center;width:340px;box-shadow:0 20px 60px rgba(0,0,0,.3)}.login-box .xg2{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--gold),var(--orange));display:inline-flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;color:#fff;margin-bottom:16px;box-shadow:0 4px 20px rgba(255,192,0,.3)}.login-box h3{color:var(--deep);margin-bottom:4px}.login-box p{font-size:12px;color:var(--sub);margin-bottom:16px}.login-box input{width:100%;padding:14px;border:2px solid #E0E4EC;border-radius:12px;font-size:15px;text-align:center;font-family:inherit;margin-bottom:8px;letter-spacing:4px}.login-box input:focus{outline:none;border-color:var(--blue)}.login-box .err{color:var(--red);font-size:11px;display:none}.login-box .pb{width:100%;padding:14px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;font-family:inherit;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;font-size:15px;margin-top:8px;box-shadow:0 4px 16px rgba(0,31,197,.2)}
+.report{display:none;background:#fff;border-radius:16px;padding:30px;line-height:2}.report.on{display:block}.report h2{font-size:20px;color:var(--navy);text-align:center;margin-bottom:6px;padding-bottom:14px;border-bottom:3px solid var(--navy)}.report h3{font-size:14px;color:var(--deep);margin:18px 0 8px;padding-left:10px;border-left:3px solid var(--blue)}.report .exec-summary{background:var(--bg);padding:14px;border-radius:10px;font-size:12px;margin:10px 0;line-height:1.9}.report .act-item{display:flex;gap:8px;padding:6px 0;font-size:12px}.report .act-prio{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:bold;color:#fff;flex-shrink:0}.prio-0{background:var(--red)}.prio-1{background:var(--orange)}.prio-2{background:var(--blue)}
+.empty-state{text-align:center;padding:30px;color:var(--sub)}.empty-state .icon{font-size:48px;margin-bottom:10px;opacity:.4}
 @media print{.topbar,.btn,.login-pop,.import-box,.card .btn,.card .btn2,.row2{display:none!important}.report{display:block!important;box-shadow:none;border:none}.content{max-width:100%;padding:0}}</style></head><body>
 <div class="login-pop" id="lp"><div class="login-box"><div class="xg2">G</div><h3>客户需求分析系统</h3><p>干部端 · 专业洞察</p><input type="password" id="pw" placeholder="请输入密码"><div class="err" id="er">密码错误</div><button class="pb" id="lb">验证进入</button></div></div>
-
 <div id="ma" style="display:none">
 <div class="topbar"><div class="xg">G</div><h2>客户需求分析 · 干部端</h2><span class="logout" id="lo">退出</span></div>
 <div class="content">
-
 <div class="hero"><div class="row" id="heroStats"></div></div>
-
-<div class="card"><h3>📊 业务健康度</h3><div class="metrics" id="metricsArea"></div></div>
-
-<div class="card"><h3>🔥 高频需求 Top5</h3><ul class="top5" id="t5"><li class="empty-state"><div class="icon">📋</div>暂无数据，请导入教师CSV</li></ul></div>
-
-<div class="card"><h3>⚠️ 学生流失风险预警</h3><div id="ab"><span class="empty-state"><div class="icon">✅</div>暂无高风险学生</span></div></div>
-
-<div class="card"><h3>👨‍👩‍👧 家长情感分析</h3><div id="pb" style="font-size:12px;color:var(--sub)"><span class="empty-state">暂无数据</span></div></div>
-
-<div class="card"><h3>🏫 校区与场景分布</h3><div id="dist" style="font-size:12px;color:var(--sub)"><span class="empty-state">暂无数据</span></div></div>
-
-<div class="import-box"><div style="font-size:13px;font-weight:bold;color:var(--deep);margin-bottom:8px">📥 数据导入（粘贴 或 上传文件）</div><textarea id="ci" placeholder="方式一：粘贴CSV内容（可多次追加）"></textarea>
-<div class="row2"><button class="btn" id="mb">粘贴合并</button><label class="btn btn2" style="text-align:center;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-bottom:6px">📁 上传CSV文件<input type="file" id="fu" accept=".csv,.txt" style="display:none"></label></div><button class="btn2 btn" id="cb">清空全部</button></div>
-
-<div class="row2"><button class="btn btn3" id="genReport">📄 生成专业分析报告</button></div>
-
+<div class="card"><h3>业务健康度</h3><div class="metrics" id="metricsArea"></div></div>
+<div class="card"><h3>高频需求 Top5</h3><ul class="top5" id="t5"><li class="empty-state">暂无数据，请导入教师CSV</li></ul></div>
+<div class="card"><h3>学生流失风险预警</h3><div id="ab"><span class="empty-state">暂无高风险学生</span></div></div>
+<div class="card"><h3>家长情感分析</h3><div id="pb"><span class="empty-state">暂无数据</span></div></div>
+<div class="card"><h3>校区与场景分布</h3><div id="dist"><span class="empty-state">暂无数据</span></div></div>
+<div class="import-box"><div style="font-size:13px;font-weight:bold;color:var(--deep);margin-bottom:8px">数据导入（粘贴CSV内容）</div>
+<textarea id="ci" placeholder="粘贴教师CSV内容（可多次追加）"></textarea>
+<div class="row2"><button class="btn" id="mb">合并刷新</button><button class="btn2 btn" id="cb">清空数据</button></div></div>
+<div class="row2"><button class="btn btn3" id="genReport">生成专业分析报告</button></div>
 <div class="report" id="reportArea"></div>
 </div></div>
-
 <script>
 var d=[],P="jksx1234";
 function S(){localStorage.setItem("mg_data",JSON.stringify(d))}
 function L(){var s=localStorage.getItem("mg_data");if(s)d=JSON.parse(s)}
 function parseCSV(line){var r=[],cu="",q=false;for(var j=0;j<line.length;j++){var ch=line[j];if(ch=='"')q=!q;else if(ch===','&&!q){r.push(cu.trim());cu=""}else cu+=ch}r.push(cu.trim());return r}
-
-function R(){var N=d.length,ts=new Set(d.map(function(r){return r.t})),ss=new Set(d.map(function(r){return r.s}));
-  var warns=d.filter(function(r){return(r.st||"").indexOf("不想")>=0||(r.st||"").indexOf("无意向")>=0});
-  var sceneE=d.filter(function(r){return(r.sc||"").indexOf("体验")>=0}).length;
-  var sceneH=d.filter(function(r){return(r.sc||"").indexOf("答疑")>=0}).length;
-  var sceneS=d.filter(function(r){return(r.sc||"").indexOf("冲刺")>=0}).length;
-  var retRate=N>0?Math.round((N-warns.length)/Math.max(N,1)*100):0;
-  document.getElementById("heroStats").innerHTML=
-    '<div class=hs><div class=hv>'+N+'</div><div class=hl>总记录</div></div><div class=divider></div>'+
-    '<div class=hs><div class=hv>'+ts.size+'</div><div class=hl>教师数</div></div><div class=divider></div>'+
-    '<div class=hs><div class=hv>'+ss.size+'</div><div class=hl>学生数</div></div><div class=divider></div>'+
-    '<div class=hs><div class=hv style=color:#FFE4A0>'+retRate+'%</div><div class=hl>健康度</div></div>'+
-    (warns>0?'<div class=divider></div><div class=hs><div class=hv style=color:#FF8A80>'+warns+'</div><div class=hl>⚠需关注</div></div>':'');
-
-  var nt=d.filter(function(r){return r.n&&r.n.length>3});
-  document.getElementById("metricsArea").innerHTML=
-    '<div class="met m1"><div class=mv>'+retRate+'%</div><div class=ml>健康度<br>目标>80%</div></div>'+
-    '<div class="met m2"><div class=mv>'+ts.size+'</div><div class=ml>活跃教师<br>目标>5人</div></div>'+
-    '<div class="met m1"><div class=mv>'+(ts.size>0?Math.round(N/ts.size):'-')+'</div><div class=ml>人均记录<br>目标>5条</div></div>'+
-    (warns>0?'<div class="met m4"><div class=mv>'+warns+'</div><div class=ml>高危学生<br>需立即跟进</div></div>':'<div class="met m2"><div class=mv>0</div><div class=ml>高危学生<br>全部安全</div></div>')+
-    '<div class="met m5"><div class=mv>'+nt.length+'</div><div class=ml>家长反馈<br>有内容记录</div></div>';
-
-  var ps={};d.forEach(function(r){(r.p||"").split("/").forEach(function(p){if(p)ps[p]=(ps[p]||0)+1})});
-  var maxC=Math.max.apply(null,Object.values(ps))||1;
-  var so=Object.entries(ps).sort(function(a,b){return b[1]-a[1]}).slice(0,5);
-  document.getElementById("t5").innerHTML=so.length===0?'<li class=empty-state><div class=icon>📋</div>暂无数据</li>':
-    so.map(function(kv,i){var pct=Math.round(kv[1]/maxC*100);return'<li><div class=rk>'+(i+1)+'</div><span class=lb>'+kv[0]+'</span><div class=bar><div class=fill style=width:'+pct+'%></div></div><span class=cnt>'+kv[1]+'</span></li>'}).join("");
-
-  var ws=d.filter(function(r){return(r.st||"").indexOf("不想")>=0||(r.st||"").indexOf("无意向")>=0});
-  document.getElementById("ab").innerHTML=ws.length===0?'<span style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--green)">✅ 当前无高风险学生，续报意愿整体良好</span>':
-    ws.slice(0,6).map(function(r){var lv=(r.st||"").indexOf("不想")>=0?"H":"M";return'<div class="alert-item alert-'+(lv==="H"?"h":"m")+'"><span class=risk risk-'+lv.toLowerCase()+'>'+(lv==="H"?"高危":"中危")+'</span>'+(r.s||"?")+" · "+(r.sc||"")+" · "+(r.st||"")+" · 教师:"+(r.t||"")+"</div>"}).join("");
-
-  var pos=nt.filter(function(r){return(r.n||"").match(/满意|喜欢|好|棒|不错|进步/)}).length;
-  var neg=nt.filter(function(r){return(r.n||"").match(/不满|差|问题|担心|焦虑/)}).length;
-  document.getElementById("pb").innerHTML=nt.length===0?'<span class=empty-state>暂无数据</span>':
-    '<div style=margin-bottom:8px><span class="tag t2">😊 正面 '+pos+'</span><span class="tag t3">😟 负面 '+neg+'</span><span class="tag t1">💬 中性 '+(nt.length-pos-neg)+'</span></div>'+
-    nt.slice(0,6).map(function(r){return'<span class="tag t1" style=max-width:100%;white-space:normal;text-align:left>'+(r.s||"")+": "+(r.n||"").substring(0,40)+'</span>'}).join(" ");
-
-  var campus={};d.forEach(function(r){if(r.c)campus[r.c]=(campus[r.c]||0)+1});
-  var sc={};d.forEach(function(r){if(r.sc)sc[r.sc]=(sc[r.sc]||0)+1});
-  var dh="";
-  Object.entries(campus).sort(function(a,b){return b[1]-a[1]}).forEach(function(kv){dh+='<span class="tag t1">🏫 '+kv[0]+": "+kv[1]+"条</span> "});
-  Object.entries(sc).sort(function(a,b){return b[1]-a[1]}).forEach(function(kv){dh+='<span class="tag t2">'+kv[0]+": "+kv[1]+"条</span> "});
-  document.getElementById("dist").innerHTML=dh||'<span class=empty-state>暂无数据</span>';
-}
-
-function genReportHTML(){var N=d.length,ts=new Set(d.map(function(r){return r.t})),ss=new Set(d.map(function(r){return r.s}));
-  var warns=d.filter(function(r){return(r.st||"").indexOf("不想")>=0||(r.st||"").indexOf("无意向")>=0});
-  var ps={};d.forEach(function(r){(r.p||"").split("/").forEach(function(p){if(p)ps[p]=(ps[p]||0)+1})});
-  var so=Object.entries(ps).sort(function(a,b){return b[1]-a[1]}).slice(0,5);
-  var nt=d.filter(function(r){return r.n&&r.n.length>3});
-  var campus={};d.forEach(function(r){if(r.c)campus[r.c]=(campus[r.c]||0)+1});
-  var sc={};d.forEach(function(r){if(r.sc)sc[r.sc]=(sc[r.sc]||0)+1});
-  var retRate=N>0?Math.round((N-warns.length)/Math.max(N,1)*100):0;
-  var maxC=Math.max.apply(null,Object.values(ps))||1;
-  var now=new Date().toLocaleDateString();
-  var h='<div class=report on id=reportContent><h2>客户需求洞察报告</h2><p style=text-align:center;color:var(--sub)>顺德区域 · '+now+' · 共'+N+'条记录</p>';
-  h+='<h3>一、执行摘要</h3><div class=exec-summary>本周期共收集<b>'+N+'</b>条客户需求，覆盖<b>'+ts.size+'</b>名教师、<b>'+ss.size+'</b>名学生。业务健康度<b>'+retRate+'%</b>'+(retRate>=80?'，处于健康区间。':(retRate>=60?'，需关注提升。':'，<b style=color:var(--red)>需立即干预</b>。'))+(warns.length>0?'<b>'+warns.length+'</b>名学生存在流失风险。':'目前无高风险学生。')+'</div>';
-  h+='<h3>二、高频需求分析</h3>';
-  if(so.length===0)h+='<p>暂无足够数据</p>';
-  else{so.forEach(function(kv,i){var pct=Math.round(kv[1]/maxC*100);h+='<div class=act-item><span class=act-prio prio-'+(i<2?0:i<4?1:2)+'>'+(i+1)+'</span>'+kv[0]+' — <b>'+kv[1]+'次 ('+pct+'%)</b></div>'});}
-  h+='<p style=color:var(--sub);margin-top:8px><b>分析：</b>'+(so.length>0?'最高频需求为「<b>'+so[0][0]+'</b>」，建议本周碰头会讨论应对策略。':'积累更多数据后将自动生成趋势。')+'</p>';
-  h+='<h3>三、流失风险评估</h3>';
-  if(warns.length===0)h+='<p style=color:var(--green)>✓ 无高风险学生，续报意愿整体良好。</p>';
-  else{h+='<p>以下<b>'+warns.length+'</b>名学生需重点关注：</p>';warns.slice(0,8).forEach(function(r){h+='<div class=act-item><span class="act-prio prio-'+((r.st||"").indexOf("不想")>=0?"0":"1")+'">!</span>'+(r.s||"?")+" · "+(r.sc||"")+" · "+(r.st||"")+" · 教师:"+(r.t||"")+"</div>"});}
-  h+='<h3>四、家长情感分析</h3>';
-  if(nt.length===0)h+='<p>暂无家长反馈数据。</p>';
-  else{var pos=nt.filter(function(r){return(r.n||"").match(/满意|喜欢|好|棒|不错|进步/)}).length;var neg=nt.filter(function(r){return(r.n||"").match(/不满|差|问题|担心|焦虑/)}).length;h+='<p>正面 '+pos+' · 负面 '+neg+' · 中性 '+(nt.length-pos-neg)+'</p>';nt.slice(0,6).forEach(function(r){h+='<div class=act-item>💬 '+(r.s||"")+': '+(r.n||"")+'</div>'});}
-  h+='<h3>五、分布概览</h3><div style=font-size:12px>';
-  Object.entries(campus).sort(function(a,b){return b[1]-a[1]}).forEach(function(kv){h+='<span class="tag t1">🏫 '+kv[0]+": "+kv[1]+'</span> '});
-  h+='<br>';Object.entries(sc).sort(function(a,b){return b[1]-a[1]}).forEach(function(kv){h+='<span class="tag t2">'+kv[0]+": "+kv[1]+'</span> '});h+='</div>';
-  h+='<h3>六、本周行动建议</h3>';
-  if(so.length>0)h+='<div class=act-item><span class=act-prio prio-0>P0</span>针对最高频「'+so[0][0]+'」安排专项教学调整</div>';
-  if(warns.length>0)h+='<div class=act-item><span class=act-prio prio-0>P0</span>逐一跟进'+warns.length+'名高风险学生，48h内完成首次沟通</div>';
-  h+='<div class=act-item><span class=act-prio prio-1>P1</span>下周碰头会讨论Top3需求并录入响应追踪</div>';
-  h+='<div class=act-item><span class=act-prio prio-2>P2</span>数据积累目标：每周≥50条，覆盖全部教师</div>';
-  h+='<p style=font-size:10px;color:var(--sub);margin-top:14px">极客素养中心 · 顺德校区 · '+now+'</p></div>';return h}
-
+function R(){var N=d.length,ts=new Set(d.map(function(r){return r.t})),ss=new Set(d.map(function(r){return r.s}));var warns=d.filter(function(r){return(r.st||"").indexOf("不想")>=0||(r.st||"").indexOf("无意向")>=0});var retRate=N>0?Math.round((N-warns.length)/Math.max(N,1)*100):0;document.getElementById("heroStats").innerHTML='<div class=hs><div class=hv>'+N+'</div><div class=hl>总记录</div></div><div class=divider></div><div class=hs><div class=hv>'+ts.size+'</div><div class=hl>教师数</div></div><div class=divider></div><div class=hs><div class=hv>'+ss.size+'</div><div class=hl>学生数</div></div><div class=divider></div><div class=hs><div class=hv style=color:#FFE4A0>'+retRate+'%</div><div class=hl>健康度</div></div>'+(warns>0?'<div class=divider></div><div class=hs><div class=hv style=color:#FF8A80>'+warns+'</div><div class=hl>需关注</div></div>':'');var nt=d.filter(function(r){return r.n&&r.n.length>3});document.getElementById("metricsArea").innerHTML='<div class="met m1"><div class=mv>'+retRate+'%</div><div class=ml>健康度 目标>80%</div></div><div class="met m2"><div class=mv>'+ts.size+'</div><div class=ml>活跃教师 目标>5</div></div><div class="met m1"><div class=mv>'+(ts.size>0?Math.round(N/ts.size):'-')+'</div><div class=ml>人均记录 目标>5</div></div>'+(warns>0?'<div class="met m4"><div class=mv>'+warns+'</div><div class=ml>高危学生 需跟进</div></div>':'<div class="met m2"><div class=mv>0</div><div class=ml>高危学生 全部安全</div></div>')+'<div class="met m5"><div class=mv>'+nt.length+'</div><div class=ml>家长反馈</div></div>';var ps={};d.forEach(function(r){(r.p||"").split("/").forEach(function(p){if(p)ps[p]=(ps[p]||0)+1})});var maxC=Math.max.apply(null,Object.values(ps))||1;var so=Object.entries(ps).sort(function(a,b){return b[1]-a[1]}).slice(0,5);document.getElementById("t5").innerHTML=so.length===0?'<li class=empty-state>暂无数据</li>':so.map(function(kv,i){var pct=Math.round(kv[1]/maxC*100);return'<li><div class=rk>'+(i+1)+'</div><span class=lb>'+kv[0]+'</span><div class=bar><div class=fill style=width:'+pct+'%></div></div><span class=cnt>'+kv[1]+'</span></li>'}).join("");var ws=d.filter(function(r){return(r.st||"").indexOf("不想")>=0||(r.st||"").indexOf("无意向")>=0});document.getElementById("ab").innerHTML=ws.length===0?'<span style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--green)">无高风险学生</span>':ws.slice(0,6).map(function(r){var lv=(r.st||"").indexOf("不想")>=0?"H":"M";return'<div class="alert-item alert-'+(lv==="H"?"h":"m")+'"><span class=risk risk-'+lv.toLowerCase()+'>'+(lv==="H"?"高危":"中危")+'</span>'+(r.s||"?")+" - "+(r.sc||"")+" - "+(r.st||"")+" - 教师:"+(r.t||"")+"</div>"}).join("");var pos=nt.filter(function(r){return(r.n||"").match(/满意|喜欢|好|棒|不错|进步/)}).length;var neg=nt.filter(function(r){return(r.n||"").match(/不满|差|问题|担心|焦虑/)}).length;document.getElementById("pb").innerHTML=nt.length===0?'<span class=empty-state>暂无数据</span>':'<div style=margin-bottom:8px><span class="tag t2">正面 '+pos+'</span><span class="tag t3">负面 '+neg+'</span><span class="tag t1">中性 '+(nt.length-pos-neg)+'</span></div>'+nt.slice(0,6).map(function(r){return'<span class="tag t1">'+(r.s||"")+": "+(r.n||"").substring(0,40)+'</span>'}).join(" ");var campus={};d.forEach(function(r){if(r.c)campus[r.c]=(campus[r.c]||0)+1});var sc={};d.forEach(function(r){if(r.sc)sc[r.sc]=(sc[r.sc]||0)+1});var dh="";Object.entries(campus).sort(function(a,b){return b[1]-a[1]}).forEach(function(kv){dh+='<span class="tag t1">'+kv[0]+": "+kv[1]+"条</span> "});Object.entries(sc).sort(function(a,b){return b[1]-a[1]}).forEach(function(kv){dh+='<span class="tag t2">'+kv[0]+": "+kv[1]+"条</span> "});document.getElementById("dist").innerHTML=dh||'<span class=empty-state>暂无数据</span>'}
+function genReportHTML(){var N=d.length,ts=new Set(d.map(function(r){return r.t})),ss=new Set(d.map(function(r){return r.s}));var warns=d.filter(function(r){return(r.st||"").indexOf("不想")>=0||(r.st||"").indexOf("无意向")>=0});var ps={};d.forEach(function(r){(r.p||"").split("/").forEach(function(p){if(p)ps[p]=(ps[p]||0)+1})});var so=Object.entries(ps).sort(function(a,b){return b[1]-a[1]}).slice(0,5);var nt=d.filter(function(r){return r.n&&r.n.length>3});var campus={};d.forEach(function(r){if(r.c)campus[r.c]=(campus[r.c]||0)+1});var sc={};d.forEach(function(r){if(r.sc)sc[r.sc]=(sc[r.sc]||0)+1});var retRate=N>0?Math.round((N-warns.length)/Math.max(N,1)*100):0;var maxC=Math.max.apply(null,Object.values(ps))||1;var now=new Date().toLocaleDateString();var h='<div class=report on><h2>客户需求洞察报告</h2><p style=text-align:center;color:var(--sub)>顺德区域 - '+now+' - 共'+N+'条记录</p>';h+='<h3>一、执行摘要</h3><div class=exec-summary>本周期共收集<b>'+N+'</b>条需求，覆盖<b>'+ts.size+'</b>名教师、<b>'+ss.size+'</b>名学生。健康度<b>'+retRate+'%</b>'+(retRate>=80?'，处于健康区间。':(retRate>=60?'，需关注。':'，<b style=color:var(--red)>需立即干预</b>。'))+(warns.length>0?'<b>'+warns.length+'</b>名存在流失风险。':'无高风险学生。')+'</div>';h+='<h3>二、高频需求分析</h3>';if(so.length===0)h+='<p>暂无足够数据</p>';else{so.forEach(function(kv,i){var pct=Math.round(kv[1]/maxC*100);h+='<div class=act-item><span class=act-prio prio-'+(i<2?0:i<4?1:2)+'>'+(i+1)+'</span>'+kv[0]+' - <b>'+kv[1]+'次 ('+pct+'%)</b></div>'});}h+='<p style=color:var(--sub);margin-top:8px>分析：'+(so.length>0?'最高频需求为<b>'+so[0][0]+'</b>，建议本周碰头会讨论应对策略。':'')+'</p>';h+='<h3>三、流失风险评估</h3>';if(warns.length===0)h+='<p style=color:var(--green)>无高风险学生，续报意愿整体良好。</p>';else{h+='<p>以下<b>'+warns.length+'</b>名学生需重点关注：</p>';warns.slice(0,8).forEach(function(r){h+='<div class=act-item><span class="act-prio prio-'+((r.st||"").indexOf("不想")>=0?"0":"1")+'">!</span>'+(r.s||"?")+" - "+(r.sc||"")+" - "+(r.st||"")+" - 教师:"+(r.t||"")+"</div>"});}h+='<h3>四、家长情感分析</h3>';if(nt.length===0)h+='<p>暂无家长反馈数据。</p>';else{var pos=nt.filter(function(r){return(r.n||"").match(/满意|喜欢|好|棒|不错|进步/)}).length;var neg=nt.filter(function(r){return(r.n||"").match(/不满|差|问题|担心|焦虑/)}).length;h+='<p>正面 '+pos+' - 负面 '+neg+' - 中性 '+(nt.length-pos-neg)+'</p>';nt.slice(0,6).forEach(function(r){h+='<div class=act-item>'+(r.s||"")+": "+(r.n||"")+'</div>'});}h+='<h3>五、分布概览</h3><div style=font-size:12px>';Object.entries(campus).sort(function(a,b){return b[1]-a[1]}).forEach(function(kv){h+='<span class="tag t1">'+kv[0]+": "+kv[1]+'</span> '});h+='<br>';Object.entries(sc).sort(function(a,b){return b[1]-a[1]}).forEach(function(kv){h+='<span class="tag t2">'+kv[0]+": "+kv[1]+'</span> '});h+='</div>';h+='<h3>六、本周行动建议</h3>';if(so.length>0)h+='<div class=act-item><span class=act-prio prio-0>P0</span>针对最高频「'+so[0][0]+'」安排专项教学调整</div>';if(warns.length>0)h+='<div class=act-item><span class=act-prio prio-0>P0</span>逐一跟进'+warns.length+'名高风险学生，48h内完成首次沟通</div>';h+='<div class=act-item><span class=act-prio prio-1>P1</span>下周碰头会讨论Top3需求并录入响应追踪</div>';h+='<div class=act-item><span class=act-prio prio-2>P2</span>数据积累目标：每周50条，覆盖全部教师</div>';h+='<p style=font-size:10px;color:var(--sub);margin-top:14px">极客素养中心 - 顺德校区 - '+now+'</p></div>';return h}
 document.getElementById("lb").onclick=function(){if(document.getElementById("pw").value===P){document.getElementById("lp").style.display="none";document.getElementById("ma").style.display="block";L();R()}else{document.getElementById("er").style.display="block";document.getElementById("pw").value=""}};
 document.getElementById("pw").onkeydown=function(e){if(e.key==="Enter")document.getElementById("lb").click()};
 document.getElementById("lo").onclick=function(){location.reload()};
-function uploadFile(input){var file=input.files[0];if(!file)return;var reader=new FileReader();reader.onload=function(e){document.getElementById("ci").value+="
 document.getElementById("mb").onclick=function(){var c=document.getElementById("ci").value.trim();if(!c)return;var ls=c.split("\n");for(var i=0;i<ls.length;i++){var l=ls[i].trim();if(!l)continue;if(l.charCodeAt(0)===65279)l=l.substring(1);if(l.indexOf("时间")>=0)continue;var cs=parseCSV(l);if(cs.length>=5)d.push({t:cs[1]||"",c:cs[2]||"",sc:cs[3]||"",s:cs[4]||"",p:cs[5]||"",st:cs[6]||"",n:cs[7]||"",time:cs[0]||""})}document.getElementById("ci").value="";S();R()};
-document.getElementById("cb").onclick=function(){if(confirm("确定清空所有数据？此操作不可恢复。")){d=[];S();R()}};
-document.getElementById("genReport").onclick=function(){if(d.length===0){alert("请先粘贴教师CSV数据");return}var rpt=document.getElementById("reportArea");rpt.innerHTML=genReportHTML();rpt.classList.add("on");rpt.scrollIntoView({behavior:"smooth"})};
+document.getElementById("cb").onclick=function(){if(confirm("确定清空所有数据？")){d=[];S();R()}};
+document.getElementById("genReport").onclick=function(){if(d.length===0){alert("请先导入教师CSV数据");return}var rpt=document.getElementById("reportArea");rpt.innerHTML=genReportHTML();rpt.classList.add("on");rpt.scrollIntoView({behavior:"smooth"})};
 R();</script></body></html>
