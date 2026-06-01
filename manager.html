@@ -37,7 +37,8 @@
 <div class="card"><h3>家长情感分析</h3><div id="pb"><span class="empty-state">暂无数据</span></div></div>
 <div class="card"><h3>校区与场景分布</h3><div id="dist"><span class="empty-state">暂无数据</span></div></div>
 <div class="import-box"><div style="font-size:13px;font-weight:bold;color:var(--deep);margin-bottom:8px">数据导入（粘贴CSV内容）</div>
-<textarea id="ci" placeholder="粘贴教师CSV内容（可多次追加）"></textarea>
+<textarea id="ci" placeholder="方式一：粘贴CSV内容（可多次追加）"></textarea>
+<div style="display:flex;gap:8px;margin-bottom:8px"><label style="flex:1;text-align:center;padding:10px;border-radius:10px;font-weight:bold;font-size:13px;cursor:pointer;background:#fff;color:var(--blue);border:1.5px solid #D0D8E8;font-family:inherit">方式二：上传CSV文件<input type="file" id="fu" accept=".csv,.txt" style="display:none" onchange="uploadFile(this)"></label></div>
 <div class="row2"><button class="btn" id="mb">合并刷新</button><button class="btn2 btn" id="cb">清空数据</button></div></div>
 <div class="row2"><button class="btn btn3" id="genReport">生成专业分析报告</button></div>
 <div class="report" id="reportArea"></div>
@@ -52,7 +53,8 @@ function genReportHTML(){var N=d.length,ts=new Set(d.map(function(r){return r.t}
 document.getElementById("lb").onclick=function(){if(document.getElementById("pw").value===P){document.getElementById("lp").style.display="none";document.getElementById("ma").style.display="block";L();R()}else{document.getElementById("er").style.display="block";document.getElementById("pw").value=""}};
 document.getElementById("pw").onkeydown=function(e){if(e.key==="Enter")document.getElementById("lb").click()};
 document.getElementById("lo").onclick=function(){location.reload()};
-document.getElementById("mb").onclick=function(){var c=document.getElementById("ci").value.trim();if(!c)return;var ls=c.split("\n");for(var i=0;i<ls.length;i++){var l=ls[i].trim();if(!l)continue;if(l.charCodeAt(0)===65279)l=l.substring(1);if(l.indexOf("时间")>=0)continue;var cs=parseCSV(l);if(cs.length>=5)d.push({t:cs[1]||"",c:cs[2]||"",sc:cs[3]||"",s:cs[4]||"",p:cs[5]||"",st:cs[6]||"",n:cs[7]||"",time:cs[0]||""})}document.getElementById("ci").value="";S();R()};
+function uploadFile(input){var file=input.files[0];if(!file)return;var reader=new FileReader();reader.onload=function(e){document.getElementById("ci").value=e.target.result;document.getElementById("mb").click()};reader.readAsText(file,"UTF-8")}
+document.getElementById("mb").onclick=function(){var c=document.getElementById("ci").value.trim();if(!c)return;var ls=c.split("\n");for(var i=0;i<ls.length;i++){var l=ls[i].trim();if(!l)continue;if(l.charCodeAt(0)===65279)l=l.substring(1);if(l.indexOf("时间")>=0)continue;var cs=parseCSV(l);if(cs.length>=5)d.push({sc:cs[1]||"",t:cs[2]||"",c:cs[3]||"",s:cs[4]||"",p:cs[6]||cs[5]||"",st:cs[7]||cs[6]||"",n:cs[8]||cs[7]||"",time:cs[0]||""})}document.getElementById("ci").value="";S();R()};
 document.getElementById("cb").onclick=function(){if(confirm("确定清空所有数据？")){d=[];S();R()}};
 document.getElementById("genReport").onclick=function(){if(d.length===0){alert("请先导入教师CSV数据");return}var rpt=document.getElementById("reportArea");rpt.innerHTML=genReportHTML();rpt.classList.add("on");rpt.scrollIntoView({behavior:"smooth"})};
 R();</script></body></html>
