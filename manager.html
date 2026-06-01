@@ -58,3 +58,16 @@ document.getElementById("mb").onclick=function(){var c=document.getElementById("
 document.getElementById("cb").onclick=function(){if(confirm("确定清空所有数据？")){d=[];S();R()}};
 document.getElementById("genReport").onclick=function(){if(d.length===0){alert("请先导入教师CSV数据");return}var rpt=document.getElementById("reportArea");rpt.innerHTML=genReportHTML()+'<div class="row2" style="margin-top:12px"><button class="btn btn3" onclick="downloadReport()">下载报告(HTML)</button><button class="btn2 btn" onclick="window.print()">打印PDF</button></div>';rpt.classList.add("on");rpt.scrollIntoView({behavior:"smooth"})};function downloadReport(){var blob=new Blob([genReportHTML()],{type:"text/html;charset=utf-8"});var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="需求洞察报告_"+new Date().toLocaleDateString()+".html";a.click()};
 R();</script></body></html>
+<script>
+var d=[],P="jksx1234";
+function S(){localStorage.setItem("mg_data",JSON.stringify(d))}
+function L(){var s=localStorage.getItem("mg_data");if(s)d=JSON.parse(s)}
+function parseCSV(line){var r=[],cu="",q=0;for(var j=0;j<line.length;j++){var ch=line[j];if(ch=='"')q=!q;else if(ch===','&&!q){r.push(cu.trim());cu=""}else cu+=ch}r.push(cu.trim());return r}
+function showStats(){var N=d.length;document.getElementById("heroStats").innerHTML=N?N+" records":"Welcome"}
+document.getElementById("lb").onclick=function(){if(document.getElementById("pw").value===P){document.getElementById("lp").style.display="none";document.getElementById("ma").style.display="block";L();showStats()}else{document.getElementById("er").style.display="block"}};
+document.getElementById("pw").onkeydown=function(e){if(e.key==="Enter")document.getElementById("lb").click()};
+document.getElementById("lo").onclick=function(){location.reload()};
+document.getElementById("mb").onclick=function(){var c=document.getElementById("ci").value.trim();if(!c)return;var ls=c.split("\n");for(var i=0;i<ls.length;i++){var l=ls[i].trim();if(!l)continue;if(l.charCodeAt(0)===65279)l=l.substring(1);if(l.indexOf("时间")>=0)continue;var cs=parseCSV(l);if(cs.length>=5)d.push({t:cs[1]||"",c:cs[2]||"",sc:cs[3]||"",s:cs[4]||"",p:cs[5]||"",st:cs[6]||"",n:cs[7]||"",time:cs[0]||""})}document.getElementById("ci").value="";S();showStats()};
+document.getElementById("cb").onclick=function(){if(confirm("clear?")){d=[];S();showStats()}};
+showStats();
+</script>
